@@ -18,12 +18,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         getLocationPermission()
-        locationManager.startUpdatingLocation()
+        
     }
     
     func getLocationPermission() {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -32,6 +33,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         self.lat = locValue.latitude
         print("Current Location: \(locValue.latitude) \(locValue.longitude)")
     }
+    
+    
 
 }
 
