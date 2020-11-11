@@ -9,25 +9,25 @@
 /* Begin PBXBuildFile section */
 		A174975925550AEC00BADF15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A174975825550AEC00BADF15 /* AppDelegate.swift */; };
 		A174975B25550AEC00BADF15 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A174975A25550AEC00BADF15 /* SceneDelegate.swift */; };
-		A174975D25550AEC00BADF15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A174975C25550AEC00BADF15 /* ViewController.swift */; };
 		A174976025550AEC00BADF15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A174975E25550AEC00BADF15 /* Main.storyboard */; };
 		A174976225550AED00BADF15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A174976125550AED00BADF15 /* Assets.xcassets */; };
 		A174976525550AED00BADF15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A174976325550AED00BADF15 /* LaunchScreen.storyboard */; };
 		A179AE1A2555C26900232F3B /* Locations.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A179AE182555C26900232F3B /* Locations.xcdatamodeld */; };
 		A179AE372555CD4E00232F3B /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179AE362555CD4E00232F3B /* LocationCell.swift */; };
+		A1E703DE255B709E001975AE /* HomeTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E703DD255B709E001975AE /* HomeTabController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A174975525550AEC00BADF15 /* AccuAQI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccuAQI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A174975825550AEC00BADF15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A174975A25550AEC00BADF15 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A174975C25550AEC00BADF15 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A174975F25550AEC00BADF15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A174976125550AED00BADF15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A174976425550AED00BADF15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A174976625550AED00BADF15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A179AE192555C26900232F3B /* Locations.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Locations.xcdatamodel; sourceTree = "<group>"; };
 		A179AE362555CD4E00232F3B /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
+		A1E703DD255B709E001975AE /* HomeTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +74,7 @@
 		A174976D25550E1000BADF15 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A174975C25550AEC00BADF15 /* ViewController.swift */,
+				A1E703DD255B709E001975AE /* HomeTabController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -167,11 +167,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A174975D25550AEC00BADF15 /* ViewController.swift in Sources */,
 				A179AE372555CD4E00232F3B /* LocationCell.swift in Sources */,
 				A174975925550AEC00BADF15 /* AppDelegate.swift in Sources */,
 				A179AE1A2555C26900232F3B /* Locations.xcdatamodeld in Sources */,
 				A174975B25550AEC00BADF15 /* SceneDelegate.swift in Sources */,
+				A1E703DE255B709E001975AE /* HomeTabController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

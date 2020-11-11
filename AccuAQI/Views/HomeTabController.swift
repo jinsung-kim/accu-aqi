@@ -1,14 +1,14 @@
 //
-//  ViewController.swift
+//  HomeTabController.swift
 //  AccuAQI
 //
-//  Created by Jin Kim on 11/5/20.
+//  Created by Jin Kim on 11/10/20.
 //
 
 import UIKit
 import CoreLocation
 
-class ViewController: UIViewController, CLLocationManagerDelegate, UITabBarControllerDelegate {
+class ViewController: UITabBarController, UITabBarControllerDelegate, CLLocationManagerDelegate {
     
     // GPS services
     private let locationManager: CLLocationManager = CLLocationManager()
@@ -17,7 +17,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITabBarContr
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBarController?.delegate = self
+        self.delegate = self
         getLocationPermission()
     }
     
@@ -34,8 +34,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITabBarContr
         print("Current Location: \(locValue.latitude) \(locValue.longitude)")
     }
     
-    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        print("In here")
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        let selectedIndex = tabBarController.viewControllers?.firstIndex(of: viewController)!
+        if selectedIndex == 0 {
+            print("Locations")
+            
+        } else {
+            print("Settings")
+            
+        }
     }
 }
 
