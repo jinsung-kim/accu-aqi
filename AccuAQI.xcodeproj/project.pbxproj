@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A1200EB4255DA04B00EE72CD /* SavedLocationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1200EB3255DA04B00EE72CD /* SavedLocationsController.swift */; };
+		A1200EB7255DA92D00EE72CD /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1200EB6255DA92D00EE72CD /* LocationController.swift */; };
 		A174975925550AEC00BADF15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A174975825550AEC00BADF15 /* AppDelegate.swift */; };
 		A174975B25550AEC00BADF15 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A174975A25550AEC00BADF15 /* SceneDelegate.swift */; };
 		A174976025550AEC00BADF15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A174975E25550AEC00BADF15 /* Main.storyboard */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A1200EB3255DA04B00EE72CD /* SavedLocationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedLocationsController.swift; sourceTree = "<group>"; };
+		A1200EB6255DA92D00EE72CD /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		A174975525550AEC00BADF15 /* AccuAQI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccuAQI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A174975825550AEC00BADF15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A174975A25550AEC00BADF15 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +79,8 @@
 			isa = PBXGroup;
 			children = (
 				A1E703DD255B709E001975AE /* HomeTabController.swift */,
+				A1200EB3255DA04B00EE72CD /* SavedLocationsController.swift */,
+				A1200EB6255DA92D00EE72CD /* LocationController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -171,7 +177,9 @@
 				A174975925550AEC00BADF15 /* AppDelegate.swift in Sources */,
 				A179AE1A2555C26900232F3B /* Locations.xcdatamodeld in Sources */,
 				A174975B25550AEC00BADF15 /* SceneDelegate.swift in Sources */,
+				A1200EB4255DA04B00EE72CD /* SavedLocationsController.swift in Sources */,
 				A1E703DE255B709E001975AE /* HomeTabController.swift in Sources */,
+				A1200EB7255DA92D00EE72CD /* LocationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

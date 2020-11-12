@@ -11,7 +11,7 @@
         <!--Settings-->
         <scene sceneID="8lT-Ky-KJJ">
             <objects>
-                <viewController id="EmO-6z-hSh" sceneMemberID="viewController">
+                <viewController title="Settings" id="EmO-6z-hSh" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f49-hM-Juj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -19,39 +19,114 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" selectedImage="gearshape.fill" catalog="system" id="V4L-Vb-SUf"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UNH-LT-30H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="551" y="210"/>
+            <point key="canvasLocation" x="550.72463768115949" y="239.73214285714283"/>
         </scene>
         <!--Locations-->
         <scene sceneID="SGR-Jk-yzm">
             <objects>
-                <viewController id="KGu-fY-WBR" sceneMemberID="viewController">
+                <viewController title="Locations" id="KGu-fY-WBR" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U2y-cz-cxB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tlk-Tb-6IH">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationCell" rowHeight="55" id="F91-k4-qWs" customClass="LocationCell" customModule="AccuAQI" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="55"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F91-k4-qWs" id="IJ0-r4-7iz">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="72D-9Z-xiR">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City, State" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNo-WO-mA8">
+                                                            <rect key="frame" x="15" y="17" width="384" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="lNo-WO-mA8" secondAttribute="bottom" constant="17" id="9kV-L1-LD2"/>
+                                                        <constraint firstItem="lNo-WO-mA8" firstAttribute="top" secondItem="72D-9Z-xiR" secondAttribute="top" constant="17" id="RSy-nR-neL"/>
+                                                        <constraint firstItem="lNo-WO-mA8" firstAttribute="leading" secondItem="72D-9Z-xiR" secondAttribute="leading" constant="15" id="WSc-Am-0de"/>
+                                                        <constraint firstAttribute="trailing" secondItem="lNo-WO-mA8" secondAttribute="trailing" constant="15" id="pT5-hA-RjX"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="72D-9Z-xiR" secondAttribute="trailing" id="1Jf-aq-9rN"/>
+                                                <constraint firstItem="72D-9Z-xiR" firstAttribute="leading" secondItem="IJ0-r4-7iz" secondAttribute="leading" id="4p6-Tc-yPR"/>
+                                                <constraint firstAttribute="bottom" secondItem="72D-9Z-xiR" secondAttribute="bottom" id="G2b-AN-xl3"/>
+                                                <constraint firstItem="72D-9Z-xiR" firstAttribute="top" secondItem="IJ0-r4-7iz" secondAttribute="top" id="edm-Q0-7KB"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cardView" destination="72D-9Z-xiR" id="I1z-aM-6e3"/>
+                                            <outlet property="locationLabel" destination="lNo-WO-mA8" id="CH2-ru-Ogv"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="fxx-5J-Hqe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tlk-Tb-6IH" firstAttribute="bottom" secondItem="fxx-5J-Hqe" secondAttribute="bottom" id="Ks2-HC-CUt"/>
+                            <constraint firstItem="tlk-Tb-6IH" firstAttribute="leading" secondItem="fxx-5J-Hqe" secondAttribute="leading" id="PhK-PM-9Jc"/>
+                            <constraint firstItem="tlk-Tb-6IH" firstAttribute="trailing" secondItem="fxx-5J-Hqe" secondAttribute="trailing" id="uqy-w4-E9j"/>
+                            <constraint firstItem="tlk-Tb-6IH" firstAttribute="top" secondItem="fxx-5J-Hqe" secondAttribute="top" id="xcL-dn-YTy"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Locations" selectedImage="star.fill" catalog="system" id="5N5-xS-O1s"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <segue destination="WMJ-bT-Yma" kind="show" identifier="ToCity" id="xkx-KH-917"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ei0-nH-TK9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="551" y="-396"/>
+            <point key="canvasLocation" x="551" y="-475"/>
+        </scene>
+        <!--Location Controller-->
+        <scene sceneID="emc-dB-e88">
+            <objects>
+                <viewController id="WMJ-bT-Yma" customClass="LocationController" customModule="AccuAQI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wvC-Yj-zkC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ZAr-78-mzE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ruf-8q-Eur"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z10-am-lLm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1488" y="-475"/>
         </scene>
         <!--Home-->
         <scene sceneID="q3F-js-mMA">
             <objects>
                 <tabBarController title="Home" id="2Lg-ms-nBO" customClass="ViewController" customModule="AccuAQI" customModuleProvider="target" sceneMemberID="viewController">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionIndicatorImage="star.fill" catalog="system" id="iw4-Ch-jcM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="KGu-fY-WBR" kind="relationship" relationship="viewControllers" id="xrU-c9-uN7"/>
-                        <segue destination="EmO-6z-hSh" kind="relationship" relationship="viewControllers" id="2q8-pF-P4R"/>
+                        <segue destination="KGu-fY-WBR" kind="relationship" relationship="viewControllers" destinationCreationSelector="locationSegue" id="xrU-c9-uN7"/>
+                        <segue destination="EmO-6z-hSh" kind="relationship" relationship="viewControllers" destinationCreationSelector="settingSegue" id="2q8-pF-P4R"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mzu-CG-tk6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

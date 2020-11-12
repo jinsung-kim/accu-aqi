@@ -34,15 +34,5 @@ class ViewController: UITabBarController, UITabBarControllerDelegate, CLLocation
         print("Current Location: \(locValue.latitude) \(locValue.longitude)")
     }
     
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        let selectedIndex = tabBarController.viewControllers?.firstIndex(of: viewController)!
-        if selectedIndex == 0 {
-            print("Locations")
-            
-        } else {
-            print("Settings")
-            
-        }
-    }
 }
 
