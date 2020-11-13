@@ -31,6 +31,14 @@ class SavedLocationsController: UITableViewController {
         tableView.delegate = self
     }
     
+    func addButton() {
+        let addButton = UIBarButtonItem()
+        addButton.title = "Add Location"
+        addButton.action = #selector(addButtonTap)
+        addButton.target = self
+        self.navigationItem.rightBarButtonItem = addButton
+    }
+    
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell,
                             forRowAt indexPath: IndexPath) {
         cell.backgroundColor = UIColor.clear
@@ -64,8 +72,9 @@ class SavedLocationsController: UITableViewController {
         cell.clipsToBounds = true
         
         // Getting the contents of the selected row
-        // See UserCell.swift in Custom group
-        cell.configure(locations[indexPath.row].value(forKey: "name") as! String)
+        
+        // TO DO - Make sure to keep format City, State here
+        cell.configure(locations[indexPath.row].value(forKey: "city") as! String)
         
         return cell
     }
@@ -123,14 +132,6 @@ class SavedLocationsController: UITableViewController {
                                 self.saveLocation(input!)
                             })
         tableView.reloadData()
-    }
-    
-    func addButton() {
-        let addButton = UIBarButtonItem()
-        addButton.title = "Add Location"
-        addButton.action = #selector(addButtonTap)
-        addButton.target = self
-        self.navigationItem.rightBarButtonItem = addButton
     }
     
     func saveLocation(_ name: String) {

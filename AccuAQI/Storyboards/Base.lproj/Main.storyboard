@@ -25,75 +25,63 @@
             </objects>
             <point key="canvasLocation" x="550.72463768115949" y="239.73214285714283"/>
         </scene>
-        <!--Locations-->
-        <scene sceneID="SGR-Jk-yzm">
+        <!--Saved Locations-->
+        <scene sceneID="ECL-H4-lir">
             <objects>
-                <viewController title="Locations" id="KGu-fY-WBR" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="U2y-cz-cxB">
+                <tableViewController title="Saved Locations" id="39f-oU-eyF" customClass="SavedLocationsController" customModule="AccuAQI" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="i73-NQ-dpT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tlk-Tb-6IH">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationCell" rowHeight="55" id="F91-k4-qWs" customClass="LocationCell" customModule="AccuAQI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="55"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F91-k4-qWs" id="IJ0-r4-7iz">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="72D-9Z-xiR">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City, State" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNo-WO-mA8">
-                                                            <rect key="frame" x="15" y="17" width="384" height="21"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="lNo-WO-mA8" secondAttribute="bottom" constant="17" id="9kV-L1-LD2"/>
-                                                        <constraint firstItem="lNo-WO-mA8" firstAttribute="top" secondItem="72D-9Z-xiR" secondAttribute="top" constant="17" id="RSy-nR-neL"/>
-                                                        <constraint firstItem="lNo-WO-mA8" firstAttribute="leading" secondItem="72D-9Z-xiR" secondAttribute="leading" constant="15" id="WSc-Am-0de"/>
-                                                        <constraint firstAttribute="trailing" secondItem="lNo-WO-mA8" secondAttribute="trailing" constant="15" id="pT5-hA-RjX"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="72D-9Z-xiR" secondAttribute="trailing" id="1Jf-aq-9rN"/>
-                                                <constraint firstItem="72D-9Z-xiR" firstAttribute="leading" secondItem="IJ0-r4-7iz" secondAttribute="leading" id="4p6-Tc-yPR"/>
-                                                <constraint firstAttribute="bottom" secondItem="72D-9Z-xiR" secondAttribute="bottom" id="G2b-AN-xl3"/>
-                                                <constraint firstItem="72D-9Z-xiR" firstAttribute="top" secondItem="IJ0-r4-7iz" secondAttribute="top" id="edm-Q0-7KB"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="cardView" destination="72D-9Z-xiR" id="I1z-aM-6e3"/>
-                                            <outlet property="locationLabel" destination="lNo-WO-mA8" id="CH2-ru-Ogv"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="fxx-5J-Hqe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="tlk-Tb-6IH" firstAttribute="bottom" secondItem="fxx-5J-Hqe" secondAttribute="bottom" id="Ks2-HC-CUt"/>
-                            <constraint firstItem="tlk-Tb-6IH" firstAttribute="leading" secondItem="fxx-5J-Hqe" secondAttribute="leading" id="PhK-PM-9Jc"/>
-                            <constraint firstItem="tlk-Tb-6IH" firstAttribute="trailing" secondItem="fxx-5J-Hqe" secondAttribute="trailing" id="uqy-w4-E9j"/>
-                            <constraint firstItem="tlk-Tb-6IH" firstAttribute="top" secondItem="fxx-5J-Hqe" secondAttribute="top" id="xcL-dn-YTy"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Locations" selectedImage="star.fill" catalog="system" id="5N5-xS-O1s"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Location" id="kgp-al-zgs">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kgp-al-zgs" id="gab-x4-kGW">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="72D-9Z-xiR">
+                                            <rect key="frame" x="0.0" y="-6" width="414" height="55"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City, State" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNo-WO-mA8">
+                                                    <rect key="frame" x="15" y="17" width="384" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="lNo-WO-mA8" secondAttribute="bottom" constant="17" id="9kV-L1-LD2"/>
+                                                <constraint firstItem="lNo-WO-mA8" firstAttribute="top" secondItem="72D-9Z-xiR" secondAttribute="top" constant="17" id="RSy-nR-neL"/>
+                                                <constraint firstItem="lNo-WO-mA8" firstAttribute="leading" secondItem="72D-9Z-xiR" secondAttribute="leading" constant="15" id="WSc-Am-0de"/>
+                                                <constraint firstAttribute="trailing" secondItem="lNo-WO-mA8" secondAttribute="trailing" constant="15" id="pT5-hA-RjX"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="72D-9Z-xiR" secondAttribute="trailing" id="Mc6-Zp-goa"/>
+                                        <constraint firstAttribute="bottom" secondItem="72D-9Z-xiR" secondAttribute="bottom" constant="-5.5" id="cIF-xm-fY7"/>
+                                        <constraint firstItem="72D-9Z-xiR" firstAttribute="leading" secondItem="gab-x4-kGW" secondAttribute="leading" id="eHC-s5-PLB"/>
+                                        <constraint firstItem="72D-9Z-xiR" firstAttribute="top" secondItem="gab-x4-kGW" secondAttribute="top" constant="-6" id="hz5-5o-opC"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="39f-oU-eyF" id="CLa-1Q-u4C"/>
+                            <outlet property="delegate" destination="39f-oU-eyF" id="BIa-ER-Ute"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Locations" selectedImage="star.fill" catalog="system" id="JlQ-5b-r9x"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <segue destination="WMJ-bT-Yma" kind="show" identifier="ToCity" id="xkx-KH-917"/>
+                        <segue destination="WMJ-bT-Yma" kind="show" identifier="ToCity" id="bhz-pN-EBB"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ei0-nH-TK9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JBH-bc-psC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tabBarItem title="Locations" selectedImage="star.fill" catalog="system" id="N0a-F0-IAV"/>
             </objects>
             <point key="canvasLocation" x="551" y="-475"/>
         </scene>
@@ -125,7 +113,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="KGu-fY-WBR" kind="relationship" relationship="viewControllers" destinationCreationSelector="locationSegue" id="xrU-c9-uN7"/>
+                        <segue destination="39f-oU-eyF" kind="relationship" relationship="viewControllers" id="qnc-m3-Qub"/>
                         <segue destination="EmO-6z-hSh" kind="relationship" relationship="viewControllers" destinationCreationSelector="settingSegue" id="2q8-pF-P4R"/>
                     </connections>
                 </tabBarController>
