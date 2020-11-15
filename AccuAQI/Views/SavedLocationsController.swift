@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 
 class SavedLocationsController: UITableViewController {
     
@@ -15,6 +16,7 @@ class SavedLocationsController: UITableViewController {
     var lat: Double = 0.0
     var long: Double = 0.0
     var index: Int?
+    var place: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,7 @@ class SavedLocationsController: UITableViewController {
         addButton()
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.backgroundColor = UIColor.white // Sets the background color to white
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -29,6 +32,7 @@ class SavedLocationsController: UITableViewController {
         addButton()
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.backgroundColor = UIColor.white // Sets the background color to white
     }
     
     func addButton() {
@@ -45,16 +49,19 @@ class SavedLocationsController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.destination is SpecialistTrackingController {
-//            let vc = segue.destination as? SpecialistTrackingController
-//            vc?.name = name!
-//        }
+        let vc = segue.destination as? LocationController
+        // Transfers data to the location screen again
+        vc?.lat = self.lat
+        vc?.long = self.long
+        vc?.place = self.place
     }
     
+    // Selected location (In order to pass the information to the next)
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         long = (locations[indexPath.row].value(forKey: "long") as! Double)
         lat = (locations[indexPath.row].value(forKey: "lat") as! Double)
         index = indexPath.row
+        place = (locations[indexPath.row].value(forKey: "address") as! String)
         performSegue(withIdentifier: "ToCity", sender: self)
     }
     
@@ -71,10 +78,8 @@ class SavedLocationsController: UITableViewController {
         
         cell.clipsToBounds = true
         
-        // Getting the contents of the selected row
-        
-        // TO DO - Make sure to keep format City, State here
-        cell.configure(locations[indexPath.row].value(forKey: "city") as! String)
+        // Make sure to keep format City, State here
+        cell.configure(locations[indexPath.row].value(forKey: "address") as! String)
         
         return cell
     }
@@ -120,13 +125,18 @@ class SavedLocationsController: UITableViewController {
         }
     }
     
+    // Converts the location into displayable and savable values
+    func getCoordinateFrom(address: String, completion: @escaping(_ coordinate: CLLocationCoordinate2D?, _ error: Error?) -> () ) {
+        CLGeocoder().geocodeAddressString(address) { completion($0?.first?.location?.coordinate, $1) }
+    }
+    
     // Add new session
     @objc func addButtonTap() {
         showInputDialog(title: "Add a location",
                         subtitle: "Please enter with 'City, State'",
                         actionTitle: "Add",
                         cancelTitle: "Cancel",
-                        inputPlaceholder: "Ex: John Appleseed",
+                        inputPlaceholder: "Ex: Brooklyn, NY",
                         inputKeyboardType: .emailAddress, actionHandler:
                             { (input: String?) in
                                 self.saveLocation(input!)
@@ -134,7 +144,7 @@ class SavedLocationsController: UITableViewController {
         tableView.reloadData()
     }
     
-    func saveLocation(_ name: String) {
+    func saveLocation(_ address: String) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
@@ -145,10 +155,14 @@ class SavedLocationsController: UITableViewController {
         
         let loc = NSManagedObject(entity: entity, insertInto: managedContext)
         
-        loc.setValue(name, forKeyPath: "name")
-        loc.setValue(name, forKeyPath: "name")
-        loc.setValue(name, forKeyPath: "name")
-        loc.setValue(name, forKeyPath: "name")
+        // Getting the coordinates to save and pass to next controller
+        getCoordinateFrom(address: address) { coordinate, error in
+            guard let coordinate = coordinate, error == nil else { return }
+            loc.setValue(coordinate.longitude, forKeyPath: "long")
+            loc.setValue(coordinate.latitude, forKeyPath: "lat")
+        }
+        
+        loc.setValue(address, forKeyPath: "address")
         
         do {
             try managedContext.save()

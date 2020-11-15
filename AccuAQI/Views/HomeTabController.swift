@@ -8,7 +8,7 @@
 import UIKit
 import CoreLocation
 
-class ViewController: UITabBarController, UITabBarControllerDelegate, CLLocationManagerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate {
     
     // GPS services
     private let locationManager: CLLocationManager = CLLocationManager()
@@ -17,7 +17,6 @@ class ViewController: UITabBarController, UITabBarControllerDelegate, CLLocation
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.delegate = self
         getLocationPermission()
     }
     
@@ -31,8 +30,7 @@ class ViewController: UITabBarController, UITabBarControllerDelegate, CLLocation
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         self.long = locValue.longitude
         self.lat = locValue.latitude
-        print("Current Location: \(locValue.latitude) \(locValue.longitude)")
+        locationManager.stopUpdatingLocation() // Only stop updating if long and lat found - we want one refresh per page
     }
-    
 }
 

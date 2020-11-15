@@ -22,9 +22,6 @@ class LocationCell: UITableViewCell {
         
         // Styling the card
         cardView.backgroundColor = UIColor.white
-        cardView.layer.shadowColor = UIColor.gray.cgColor
-        cardView.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
-        cardView.layer.shadowOpacity = 1.0
         cardView.layer.masksToBounds = false
         cardView.layer.cornerRadius = self.frame.size.height / 4
     }
