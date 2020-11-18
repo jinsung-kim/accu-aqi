@@ -17,6 +17,7 @@ class LocationController: UIViewController {
     
     // Description for current conditions
     var desc: Int = -1
+    var res: [[String: Any]] = []
     
     var KEY_1: String = "7067EF70-F434-4E9A-81AB-493611F975AA"
     var source1: String = "https://www.airnowapi.org/aq/forecast/latLong/?format=application/json&distance=25&"
@@ -27,6 +28,18 @@ class LocationController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var aqiReadingLabel: UILabel!
     @IBOutlet weak var conditionLabel: UILabel!
+    
+    // Source 1
+    var aqi1: Int = 0
+    var lat1: Double = 0.0
+    var long1: Double = 0.0
+    var desc1: String = ""
+    var num1: Int = 0
+    
+    // Source 2
+    var aqi2: Int = 0
+    var lat2: Double = 0.0
+    var long2: Double = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,9 +52,13 @@ class LocationController: UIViewController {
                 self.lat = coordinate.latitude
                 // Add fetch stuff here with API keys
                 self.updateLabels()
+                self.estimateAQI()
+                self.updateDescription()
             }
         } else {
             updateLabels()
+            estimateAQI()
+            updateDescription()
         }
     }
     
@@ -51,10 +68,15 @@ class LocationController: UIViewController {
         lat = lat.truncate(places: 4)
         long = long.truncate(places: 4)
         getAQIReadings() { res in
-            print(res)
+            let data = Data(res.utf8)
+            if let json = try? (JSONSerialization.jsonObject(with: data, options: []) as! [AnyObject]) {
+                self.aqi1 = (json[0]["AQI"] as! Int)
+                self.lat1 = (json[0]["Latitude"] as! Double)
+                self.long1 = (json[0]["Longitude"] as! Double)
+                self.num1 = ((json[0]["Category"]!!) as! NSDictionary)["Number"] as! Int
+                self.desc1 = ((json[0]["Category"]!!) as! NSDictionary)["Name"] as! String
+            }
         }
-        estimateAQI()
-        updateDescription()
     }
     
     func getCoordinateFrom(address: String, completion: @escaping(_ coordinate: CLLocationCoordinate2D?, _ error: Error?) -> () ) {
@@ -63,7 +85,6 @@ class LocationController: UIViewController {
     
     func getAQIReadings(completion: @escaping (String) -> ()) {
         source1 = source1 + "date=\(getDate())&latitude=\(lat)&longitude=\(long)&API_KEY=\(KEY_1)"
-//        print(source1)
         let url1 = URL(string: source1)!
         let task1 = URLSession.shared.dataTask(with: url1, completionHandler: { (data, res, err) in
             if (err != nil) {
