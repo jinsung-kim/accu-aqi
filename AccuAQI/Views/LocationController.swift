@@ -52,13 +52,9 @@ class LocationController: UIViewController {
                 self.lat = coordinate.latitude
                 // Add fetch stuff here with API keys
                 self.updateLabels()
-                self.estimateAQI()
-                self.updateDescription()
             }
         } else {
             updateLabels()
-            estimateAQI()
-            updateDescription()
         }
     }
     
@@ -76,10 +72,15 @@ class LocationController: UIViewController {
                 self.num1 = ((json[0]["Category"]!!) as! NSDictionary)["Number"] as! Int
                 self.desc1 = ((json[0]["Category"]!!) as! NSDictionary)["Name"] as! String
             }
+            DispatchQueue.main.async {
+                self.estimateAQI()
+                self.updateDescription()
+            }
         }
     }
     
-    func getCoordinateFrom(address: String, completion: @escaping(_ coordinate: CLLocationCoordinate2D?, _ error: Error?) -> () ) {
+    func getCoordinateFrom(address: String, completion: @escaping(_ coordinate: CLLocationCoordinate2D?,
+                                                                  _ error: Error?) -> () ) {
         CLGeocoder().geocodeAddressString(address) { completion($0?.first?.location?.coordinate, $1) }
     }
     
@@ -112,6 +113,8 @@ class LocationController: UIViewController {
         if (self.desc == -1) {
             self.conditionLabel.text = "Not available"
         }
+        self.aqiReadingLabel.text = "\(aqi1)"
+        self.conditionLabel.text = desc1
     }
     
     func getDate() -> String {
@@ -123,6 +126,6 @@ class LocationController: UIViewController {
 
 extension Double {
     func truncate(places : Int) -> Double {
-        return Double(floor(pow(10.0, Double(places)) * self)/pow(10.0, Double(places)))
+        return Double(floor(pow(10.0, Double(places)) * self) / pow(10.0, Double(places)))
     }
 }
