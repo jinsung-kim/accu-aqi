@@ -16,6 +16,7 @@
 		A174976525550AED00BADF15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A174976325550AED00BADF15 /* LaunchScreen.storyboard */; };
 		A179AE1A2555C26900232F3B /* Locations.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A179AE182555C26900232F3B /* Locations.xcdatamodeld */; };
 		A179AE372555CD4E00232F3B /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179AE362555CD4E00232F3B /* LocationCell.swift */; };
+		A188A26D256193DC00F4118F /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A188A26C256193DC00F4118F /* SettingsController.swift */; };
 		A1E703DE255B709E001975AE /* HomeTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E703DD255B709E001975AE /* HomeTabController.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		A174976625550AED00BADF15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A179AE192555C26900232F3B /* Locations.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Locations.xcdatamodel; sourceTree = "<group>"; };
 		A179AE362555CD4E00232F3B /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
+		A188A26C256193DC00F4118F /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		A1E703DD255B709E001975AE /* HomeTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +83,7 @@
 				A1E703DD255B709E001975AE /* HomeTabController.swift */,
 				A1200EB3255DA04B00EE72CD /* SavedLocationsController.swift */,
 				A1200EB6255DA92D00EE72CD /* LocationController.swift */,
+				A188A26C256193DC00F4118F /* SettingsController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A188A26D256193DC00F4118F /* SettingsController.swift in Sources */,
 				A179AE372555CD4E00232F3B /* LocationCell.swift in Sources */,
 				A174975925550AEC00BADF15 /* AppDelegate.swift in Sources */,
 				A179AE1A2555C26900232F3B /* Locations.xcdatamodeld in Sources */,

@@ -58,10 +58,11 @@ class SavedLocationsController: UITableViewController {
     
     // Selected location (In order to pass the information to the next)
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        long = (locations[indexPath.row].value(forKey: "long") as! Double)
-        lat = (locations[indexPath.row].value(forKey: "lat") as! Double)
-        index = indexPath.row
-        place = (locations[indexPath.row].value(forKey: "address") as! String)
+        self.long = (locations[indexPath.row].value(forKey: "long") as! Double)
+        self.lat = (locations[indexPath.row].value(forKey: "lat") as! Double)
+        self.index = indexPath.row
+        self.place = (locations[indexPath.row].value(forKey: "address") as! String)
+//        printLocations() // Checking state
         performSegue(withIdentifier: "ToCity", sender: self)
     }
     
@@ -171,6 +172,15 @@ class SavedLocationsController: UITableViewController {
             print("Could not save. \(error), \(error.userInfo)")
         }
         tableView.reloadData()
+    }
+    
+    // For debugging:
+    func printLocations() {
+        for loc in locations {
+            print("Address: \(loc.value(forKey: "address") as! String)")
+            print("Long: \(loc.value(forKey: "long") as! Double)")
+            print("Lat: \(loc.value(forKey: "lat") as! Double)")
+        }
     }
 }
 
