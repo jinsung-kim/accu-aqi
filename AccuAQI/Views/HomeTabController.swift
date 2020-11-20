@@ -68,10 +68,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         // Gets location label
         let location = CLLocation(latitude: self.lat, longitude: self.long)
         location.placemark { placemark, error in
-            guard let placemark = placemark else {
-                print("Error:", error ?? "nil")
-                return
-            }
+//            guard let placemark = placemark else {
+//                print("Error:", error ?? "nil")
+//                return
+//            }
             
 //            let spl = placemark.postalAddressFormatted!.components(separatedBy: " ")
             self.locationLabel.text = "Cupertino, CA" // Hardcoded for now

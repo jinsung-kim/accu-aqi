@@ -8,23 +8,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Settings-->
-        <scene sceneID="8lT-Ky-KJJ">
-            <objects>
-                <viewController title="Settings" id="EmO-6z-hSh" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="f49-hM-Juj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="jDC-Pi-z4J"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="gearshape" catalog="system" selectedImage="gearshape.fill" id="V4L-Vb-SUf"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UNH-LT-30H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="551" y="338"/>
-        </scene>
         <!--Home-->
         <scene sceneID="4mV-Px-0xU">
             <objects>
@@ -207,7 +190,6 @@
                     <connections>
                         <segue destination="OQa-AS-L0v" kind="relationship" relationship="viewControllers" id="LC1-en-HAg"/>
                         <segue destination="SRN-ty-ZJa" kind="relationship" relationship="viewControllers" id="Bzr-kZ-fbh"/>
-                        <segue destination="EmO-6z-hSh" kind="relationship" relationship="viewControllers" id="0Ch-Us-G3r"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mzu-CG-tk6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -235,8 +217,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="gearshape" catalog="system" width="128" height="121"/>
-        <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
