@@ -158,6 +158,9 @@ class LocationController: UIViewController {
     func updateDescription() {
         self.aqiReadingLabel.text = "\(aqi)"
         
+        self.conditionLabel.lineBreakMode = .byWordWrapping
+        self.conditionLabel.numberOfLines = 0
+        
         // Updates description
         switch (self.desc) {
         case 1:
