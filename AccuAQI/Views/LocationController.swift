@@ -21,8 +21,9 @@ class LocationController: UIViewController {
     
     var KEY_1: String = "7067EF70-F434-4E9A-81AB-493611F975AA"
     var source1: String = "https://www.airnowapi.org/aq/forecast/latLong/?format=application/json&distance=25&"
-    // DarkSky API
-    var source2: String = ""
+    // AQI Data Platform
+    var KEY_2: String = "1d67deff9ab7316c44a4320de5f9956c8d0658d3"
+    var source2: String = "https://api.waqi.info/feed/geo:"
     
     // Labels
     @IBOutlet weak var locationLabel: UILabel!
@@ -65,7 +66,9 @@ class LocationController: UIViewController {
         // Required to get gov API results
         lat = lat.truncate(places: 4)
         long = long.truncate(places: 4)
-        getAQIReadings() { res in
+        
+        // Gets AQI readings
+        getAQIReading() { res, ret in
             let data = Data(res.utf8)
             if let json = try? (JSONSerialization.jsonObject(with: data, options: []) as! [AnyObject]) {
                 self.aqi1 = (json[0]["AQI"] as! Int)
@@ -74,6 +77,15 @@ class LocationController: UIViewController {
                 self.loc1 = CLLocation(latitude: self.lat1, longitude: self.lat2)
                 self.num1 = ((json[0]["Category"]!!) as! NSDictionary)["Number"] as! Int
                 self.desc1 = ((json[0]["Category"]!!) as! NSDictionary)["Name"] as! String
+            }
+            let data2 = Data(ret.utf8)
+            if let json = try? (JSONSerialization.jsonObject(with: data2, options: []) as! [String: AnyObject]) {
+                self.aqi2 = (json["data"]!["aqi"] as! Int)
+                let geo = json["data"]!["city"]!! as! [String: AnyObject]
+                let coords = geo["geo"] as! [Double]
+                self.lat2 = coords[0]
+                self.long2 = coords[1]
+                self.loc2 = CLLocation(latitude: self.lat2, longitude: self.long2)
             }
             DispatchQueue.main.async {
                 self.estimateAQI()
@@ -87,18 +99,34 @@ class LocationController: UIViewController {
         CLGeocoder().geocodeAddressString(address) { completion($0?.first?.location?.coordinate, $1) }
     }
     
-    func getAQIReadings(completion: @escaping (String) -> ()) {
+    func getAQIReading(completion: @escaping (String, String) -> ()) {
         source1 = source1 + "date=\(getDate())&latitude=\(lat)&longitude=\(long)&API_KEY=\(KEY_1)"
         let url1 = URL(string: source1)!
         let task1 = URLSession.shared.dataTask(with: url1, completionHandler: { (data, res, err) in
             if (err != nil) {
                 print(err!)
-                completion("")
+                completion("", "")
             } else {
                 if let ret = String(data: data!, encoding: .utf8) {
-                    completion(ret)
+                    let lat_trun: Double = self.lat.truncate(places: 1)
+                    let long_trun: Double = self.long.truncate(places: 1)
+                    self.source2 = self.source2 + "\(lat_trun);\(long_trun)/?token=\(self.KEY_2)"
+                    let url2 = URL(string: self.source2)!
+                    let task2 = URLSession.shared.dataTask(with: url2, completionHandler: { (data, res, err) in
+                        if (err != nil) {
+                            print(err!)
+                            completion(ret, "")
+                        } else {
+                            if let res = String(data: data!, encoding: .utf8) {
+                                completion(ret, res)
+                            } else {
+                                completion(ret, "")
+                            }
+                        }
+                    })
+                    task2.resume()
                 } else {
-                    completion("")
+                    completion("", "")
                 }
             }
         })

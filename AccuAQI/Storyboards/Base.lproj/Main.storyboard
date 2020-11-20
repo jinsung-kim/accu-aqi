@@ -67,6 +67,11 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="homekit" catalog="system" id="tk5-wE-Qqs"/>
+                    <connections>
+                        <outlet property="aqiReadingLabel" destination="FKJ-3f-SaW" id="b6P-cQ-IQD"/>
+                        <outlet property="conditionLabel" destination="hFD-2p-lGn" id="2uB-bN-yku"/>
+                        <outlet property="locationLabel" destination="UG8-OM-hO8" id="cgL-8A-VtX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fe2-GU-Hta" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
