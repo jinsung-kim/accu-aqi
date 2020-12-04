@@ -31,8 +31,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFD-2p-lGn">
-                                <rect key="frame" x="204.5" y="543" width="5.5" height="26.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFD-2p-lGn">
+                                <rect key="frame" x="15" y="543" width="384" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="ljy-BQ-aBY"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -47,6 +50,8 @@
                             <constraint firstItem="FKJ-3f-SaW" firstAttribute="centerY" secondItem="XkE-1c-GKa" secondAttribute="centerY" id="RED-n9-le3"/>
                             <constraint firstItem="hFD-2p-lGn" firstAttribute="centerX" secondItem="XkE-1c-GKa" secondAttribute="centerX" id="Yte-Bp-JdQ"/>
                             <constraint firstItem="hFD-2p-lGn" firstAttribute="top" secondItem="FKJ-3f-SaW" secondAttribute="bottom" constant="50" id="tMa-aA-kTP"/>
+                            <constraint firstItem="bUw-jX-Wow" firstAttribute="trailing" secondItem="hFD-2p-lGn" secondAttribute="trailing" constant="15" id="xYF-IW-2Nm"/>
+                            <constraint firstItem="hFD-2p-lGn" firstAttribute="leading" secondItem="bUw-jX-Wow" secondAttribute="leading" constant="15" id="ziA-lY-jjD"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="homekit" catalog="system" id="tk5-wE-Qqs"/>
@@ -147,8 +152,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LcK-p3-BLh">
-                                <rect key="frame" x="204.5" y="543" width="5.5" height="26.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LcK-p3-BLh">
+                                <rect key="frame" x="15" y="543" width="384" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="odf-T0-07G"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -160,9 +168,11 @@
                             <constraint firstItem="jb9-YE-uTN" firstAttribute="centerX" secondItem="wvC-Yj-zkC" secondAttribute="centerX" id="2H5-Cw-gp9"/>
                             <constraint firstItem="LcK-p3-BLh" firstAttribute="centerX" secondItem="wvC-Yj-zkC" secondAttribute="centerX" id="FhD-FD-2Zm"/>
                             <constraint firstItem="jb9-YE-uTN" firstAttribute="top" secondItem="O38-Kv-Yz8" secondAttribute="bottom" constant="40" id="Toe-pE-NVX"/>
+                            <constraint firstItem="LcK-p3-BLh" firstAttribute="leading" secondItem="ZAr-78-mzE" secondAttribute="leading" constant="15" id="V1L-MC-0ny"/>
                             <constraint firstItem="O38-Kv-Yz8" firstAttribute="centerX" secondItem="wvC-Yj-zkC" secondAttribute="centerX" id="X2m-2G-3OS"/>
                             <constraint firstItem="jb9-YE-uTN" firstAttribute="centerY" secondItem="wvC-Yj-zkC" secondAttribute="centerY" id="ixv-Wk-cDP"/>
                             <constraint firstItem="LcK-p3-BLh" firstAttribute="top" secondItem="jb9-YE-uTN" secondAttribute="bottom" constant="50" id="j19-sX-8xV"/>
+                            <constraint firstItem="ZAr-78-mzE" firstAttribute="trailing" secondItem="LcK-p3-BLh" secondAttribute="trailing" constant="15" id="kGF-Ha-qVO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ruf-8q-Eur"/>

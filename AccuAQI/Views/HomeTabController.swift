@@ -9,6 +9,7 @@ import UIKit
 import MapKit
 import Contacts
 import CoreLocation
+import CoreBluetooth
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
@@ -30,7 +31,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var res: [[String: Any]] = []
     
     var KEY_1: String = "7067EF70-F434-4E9A-81AB-493611F975AA"
-    var source1: String = "https://www.airnowapi.org/aq/forecast/latLong/?format=application/json&distance=25&"
+    var source1: String = "https://www.airnowapi.org/aq/forecast/latLong/?format=application/json&latitude=39.0509&longitude=-121.4453&date=2020-12-04&distance=25&API_KEY=7067EF70-F434-4E9A-81AB-493611F975AA"
     // AQI Data Platform
     var KEY_2: String = "1d67deff9ab7316c44a4320de5f9956c8d0658d3"
     var source2: String = "https://api.waqi.info/feed/geo:"
@@ -68,13 +69,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         // Gets location label
         let location = CLLocation(latitude: self.lat, longitude: self.long)
         location.placemark { placemark, error in
-//            guard let placemark = placemark else {
-//                print("Error:", error ?? "nil")
-//                return
-//            }
+            guard let placemark = placemark else {
+                print("Error:", error ?? "nil")
+                return
+            }
             
-//            let spl = placemark.postalAddressFormatted!.components(separatedBy: " ")
-            self.locationLabel.text = "Cupertino, CA" // Hardcoded for now
+            let spl = placemark.postalAddressFormatted!.components(separatedBy: " ")
+            print(spl)
+            self.locationLabel.text = "\(spl[0]), \(spl[1])" // Hardcoded for now
         }
         
         self.updateLabels()
@@ -120,7 +122,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func getAQIReading(completion: @escaping (String, String) -> ()) {
-        source1 = source1 + "date=\(getDate())&latitude=\(lat)&longitude=\(long)&API_KEY=\(KEY_1)"
+        if (lat != 0.0 && long != 0.0) {
+            source1 = "https://www.airnowapi.org/aq/forecast/latLong/?format=application/json&latitude=\(lat)&longitude=\(long)&date=\(getDate())&distance=25&API_KEY=\(KEY_1)"
+        }
+//        source1 = source1 + "date=\(getDate())&latitude=\(lat)&longitude=\(long)&API_KEY=\(KEY_1)"
         let url1 = URL(string: source1)!
         let task1 = URLSession.shared.dataTask(with: url1, completionHandler: { (data, res, err) in
             if (err != nil) {

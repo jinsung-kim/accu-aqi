@@ -20,7 +20,7 @@ class LocationController: UIViewController {
     var res: [[String: Any]] = []
     
     var KEY_1: String = "7067EF70-F434-4E9A-81AB-493611F975AA"
-    var source1: String = "https://www.airnowapi.org/aq/forecast/latLong/?format=application/json&distance=25&"
+    var source1: String = "https://www.airnowapi.org/aq/forecast/latLong/?format=application/json&latitude=39.0509&longitude=-121.4453&date=2020-12-04&distance=25&API_KEY=7067EF70-F434-4E9A-81AB-493611F975AA"
     // AQI Data Platform
     var KEY_2: String = "1d67deff9ab7316c44a4320de5f9956c8d0658d3"
     var source2: String = "https://api.waqi.info/feed/geo:"
@@ -55,6 +55,7 @@ class LocationController: UIViewController {
                 self.lat = coordinate.latitude
                 // Add fetch stuff here with API keys
                 self.updateLabels()
+                print(self.lat, self.long)
             }
         } else {
             updateLabels()
@@ -70,14 +71,16 @@ class LocationController: UIViewController {
         // Gets AQI readings
         getAQIReading() { res, ret in
             let data = Data(res.utf8)
-            if let json = try? (JSONSerialization.jsonObject(with: data, options: []) as! [AnyObject]) {
-                self.aqi1 = (json[0]["AQI"] as! Int)
-                self.lat1 = (json[0]["Latitude"] as! Double)
-                self.long1 = (json[0]["Longitude"] as! Double)
-                self.loc1 = CLLocation(latitude: self.lat1, longitude: self.lat2)
-                self.num1 = ((json[0]["Category"]!!) as! NSDictionary)["Number"] as! Int
-                self.desc1 = ((json[0]["Category"]!!) as! NSDictionary)["Name"] as! String
+            guard let json = try? (JSONSerialization.jsonObject(with: data, options: []) as! [AnyObject]) else {
+                self.conditionLabel.text = "Location is unavailable"
+                return
             }
+            self.aqi1 = (json[0]["AQI"] as! Int)
+            self.lat1 = (json[0]["Latitude"] as! Double)
+            self.long1 = (json[0]["Longitude"] as! Double)
+            self.loc1 = CLLocation(latitude: self.lat1, longitude: self.lat2)
+            self.num1 = ((json[0]["Category"]!!) as! NSDictionary)["Number"] as! Int
+            self.desc1 = ((json[0]["Category"]!!) as! NSDictionary)["Name"] as! String
             let data2 = Data(ret.utf8)
             if let json = try? (JSONSerialization.jsonObject(with: data2, options: []) as! [String: AnyObject]) {
                 self.aqi2 = (json["data"]!["aqi"] as! Int)
@@ -100,7 +103,9 @@ class LocationController: UIViewController {
     }
     
     func getAQIReading(completion: @escaping (String, String) -> ()) {
-        source1 = source1 + "date=\(getDate())&latitude=\(lat)&longitude=\(long)&API_KEY=\(KEY_1)"
+        if (lat != 0.0 && long != 0.0) {
+            source1 = "https://www.airnowapi.org/aq/forecast/latLong/?format=application/json&latitude=\(lat)&longitude=\(long)&date=\(getDate())&distance=25&API_KEY=\(KEY_1)"
+        }
         let url1 = URL(string: source1)!
         let task1 = URLSession.shared.dataTask(with: url1, completionHandler: { (data, res, err) in
             if (err != nil) {
@@ -159,7 +164,7 @@ class LocationController: UIViewController {
         self.aqiReadingLabel.text = "\(aqi)"
         
         self.conditionLabel.lineBreakMode = .byWordWrapping
-        self.conditionLabel.numberOfLines = 0
+        self.conditionLabel.numberOfLines = 0 // as many as it requires to fit
         
         // Updates description
         switch (self.desc) {

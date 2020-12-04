@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -28,14 +28,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="hsZ-5f-nq1">
+                                <rect key="frame" x="107" y="195" width="200" height="200"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="hsZ-5f-nq1" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="EFc-3e-DT2"/>
                             <constraint firstItem="WTF-79-fEj" firstAttribute="top" secondItem="wu5-Gw-tw7" secondAttribute="bottom" constant="8" id="O9B-cK-Jqm"/>
                             <constraint firstItem="wu5-Gw-tw7" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="R5t-XK-5T5"/>
                             <constraint firstItem="WTF-79-fEj" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ZdX-2M-Ovv"/>
                             <constraint firstItem="wu5-Gw-tw7" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="sGK-F4-01Y"/>
+                            <constraint firstItem="wu5-Gw-tw7" firstAttribute="top" secondItem="hsZ-5f-nq1" secondAttribute="bottom" constant="35" id="wVZ-To-4iL"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -45,6 +50,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="logo" width="200" height="200"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
