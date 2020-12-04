@@ -74,9 +74,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 return
             }
             
-            let spl = placemark.postalAddressFormatted!.components(separatedBy: " ")
-            print(spl)
-            self.locationLabel.text = "\(spl[0]), \(spl[1])" // Hardcoded for now
+//            let spl = placemark.postalAddressFormatted!.components(separatedBy: " ")
+//            print(spl)
+            self.locationLabel.text = "\(placemark.city ?? "Error"), \(placemark.state ?? "Found")" // Hardcoded for now
         }
         
         self.updateLabels()
@@ -91,6 +91,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         // Gets AQI readings
         getAQIReading() { res, ret in
+//            print(res)
+//            print(ret)
             let data = Data(res.utf8)
             if let json = try? (JSONSerialization.jsonObject(with: data, options: []) as! [AnyObject]) {
                 self.aqi1 = (json[0]["AQI"] as! Int)
