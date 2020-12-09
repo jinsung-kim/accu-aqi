@@ -11,7 +11,7 @@ import Contacts
 import CoreLocation
 import CoreBluetooth
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, CBPeripheralDelegate, CBCentralManagerDelegate {
     
     // GPS services
     private let locationManager: CLLocationManager = CLLocationManager()
@@ -36,6 +36,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var KEY_2: String = "1d67deff9ab7316c44a4320de5f9956c8d0658d3"
     var source2: String = "https://api.waqi.info/feed/geo:"
     
+    // Bluetooth Features
+    var centralManager: CBCentralManager?
+    var peripheral: CBPeripheral?
+    
     // Source 1
     var aqi1: Int = 0
     var lat1: Double = 0.0
@@ -53,7 +57,28 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         getLocationPermission()
+        centralManager = CBCentralManager(delegate: self, queue: nil)
     }
+    
+    func centralManagerDidUpdateState(_ central: CBCentralManager) {
+        print("Central state update")
+        if central.state != .poweredOn {
+            print("Central is not powered on")
+        } else {
+//            print("Central scanning for", ParticlePeripheral.particleLEDServiceUUID);
+//            centralManager?.scanForPeripherals(withServices: [ParticlePeripheral.particleLEDServiceUUID],
+//                                              options: [CBCentralManagerScanOptionAllowDuplicatesKey : true])
+        }
+    }
+    
+    func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
+
+            self.peripheral = peripheral
+            self.peripheral?.delegate = self
+            
+            centralManager?.connect(peripheral, options: nil)
+            centralManager?.stopScan()
+     }
     
     func getLocationPermission() {
         locationManager.delegate = self

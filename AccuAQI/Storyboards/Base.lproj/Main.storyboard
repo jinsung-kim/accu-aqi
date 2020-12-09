@@ -200,6 +200,7 @@
                     <connections>
                         <segue destination="OQa-AS-L0v" kind="relationship" relationship="viewControllers" id="LC1-en-HAg"/>
                         <segue destination="SRN-ty-ZJa" kind="relationship" relationship="viewControllers" id="Bzr-kZ-fbh"/>
+                        <segue destination="aeq-XP-cDm" kind="relationship" relationship="viewControllers" id="qqW-pY-74x"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mzu-CG-tk6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -225,9 +226,114 @@
             </objects>
             <point key="canvasLocation" x="550.72463768115949" y="-475.44642857142856"/>
         </scene>
+        <!--Info-->
+        <scene sceneID="d8w-uG-YPS">
+            <objects>
+                <viewController id="aeq-XP-cDm" customClass="InfoViewController" customModule="AccuAQI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="loM-NJ-Ud2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is AQI?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t74-9q-jFa">
+                                <rect key="frame" x="10" y="64" width="120" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I03-kJ-0ym">
+                                <rect key="frame" x="10" y="98" width="394" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="mVx-xk-B2t"/>
+                                </constraints>
+                                <string key="text">AQI is an air quality index used by the government to communicate with the public how polluted the air is at a given time. The higher the AQI the more health concerns citizens should have going outside.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EGJ-GI-wUT">
+                                <rect key="frame" x="134" y="768" width="146" height="30"/>
+                                <state key="normal" title="SOURCE / SEE MORE"/>
+                                <connections>
+                                    <action selector="sourceClicked:" destination="aeq-XP-cDm" eventType="touchUpInside" id="ubd-nD-93h"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How does AQI Work?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHk-Rv-yF2">
+                                <rect key="frame" x="10" y="208" width="196" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JdN-l9-6QN">
+                                <rect key="frame" x="10" y="242" width="394" height="102"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="102" id="I8l-7P-JZE"/>
+                                </constraints>
+                                <string key="text">The higher the AQI, the greater the level of air pollution. For instance, an AQI below 50 represents a good air quality. An AQI of 300 is considered very toxic. AQI is typically divided into 6 categories, which indicate the level of health concern.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aqi" translatesAutoresizingMaskIntoConstraints="NO" id="Ciw-x6-pt6">
+                                <rect key="frame" x="57" y="354" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="0TU-5b-A1G"/>
+                                    <constraint firstAttribute="width" constant="300" id="tul-ax-5xl"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Our Mission" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j9S-jE-jCk">
+                                <rect key="frame" x="10" y="664" width="112" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Provide more accurate AQI data for those who are sensitive to poor air quality" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DVU-oq-sOE">
+                                <rect key="frame" x="10" y="698" width="394" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="bpr-Cs-kFF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="MLS-W2-s8S"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ciw-x6-pt6" firstAttribute="top" secondItem="JdN-l9-6QN" secondAttribute="bottom" constant="10" id="AD7-vt-Mex"/>
+                            <constraint firstItem="j9S-jE-jCk" firstAttribute="top" secondItem="Ciw-x6-pt6" secondAttribute="bottom" constant="10" id="APS-aJ-8Ru"/>
+                            <constraint firstAttribute="trailing" secondItem="I03-kJ-0ym" secondAttribute="trailing" constant="10" id="CQe-Zw-LPo"/>
+                            <constraint firstAttribute="trailing" secondItem="DVU-oq-sOE" secondAttribute="trailing" constant="10" id="Dyg-tj-Kfq"/>
+                            <constraint firstItem="JdN-l9-6QN" firstAttribute="top" secondItem="eHk-Rv-yF2" secondAttribute="bottom" constant="10" id="HP8-DX-Lda"/>
+                            <constraint firstItem="t74-9q-jFa" firstAttribute="top" secondItem="MLS-W2-s8S" secondAttribute="top" constant="20" id="IYD-j6-iAC"/>
+                            <constraint firstItem="JdN-l9-6QN" firstAttribute="leading" secondItem="MLS-W2-s8S" secondAttribute="leading" constant="10" id="JSc-tD-gd8"/>
+                            <constraint firstItem="j9S-jE-jCk" firstAttribute="leading" secondItem="MLS-W2-s8S" secondAttribute="leading" constant="10" id="Ke1-gc-Wca"/>
+                            <constraint firstItem="DVU-oq-sOE" firstAttribute="leading" secondItem="MLS-W2-s8S" secondAttribute="leading" constant="10" id="RIf-jY-0qe"/>
+                            <constraint firstItem="Ciw-x6-pt6" firstAttribute="centerX" secondItem="loM-NJ-Ud2" secondAttribute="centerX" id="Va7-cH-YI5"/>
+                            <constraint firstItem="MLS-W2-s8S" firstAttribute="trailing" secondItem="JdN-l9-6QN" secondAttribute="trailing" constant="10" id="cPg-Ku-TfD"/>
+                            <constraint firstItem="eHk-Rv-yF2" firstAttribute="top" secondItem="I03-kJ-0ym" secondAttribute="bottom" constant="10" id="e1z-9s-o8h"/>
+                            <constraint firstItem="I03-kJ-0ym" firstAttribute="leading" secondItem="loM-NJ-Ud2" secondAttribute="leading" constant="10" id="eGl-a7-eRV"/>
+                            <constraint firstItem="DVU-oq-sOE" firstAttribute="top" secondItem="j9S-jE-jCk" secondAttribute="bottom" constant="10" id="l3c-U2-HDG"/>
+                            <constraint firstItem="EGJ-GI-wUT" firstAttribute="centerX" secondItem="loM-NJ-Ud2" secondAttribute="centerX" id="mv6-IY-m3z"/>
+                            <constraint firstItem="I03-kJ-0ym" firstAttribute="top" secondItem="t74-9q-jFa" secondAttribute="bottom" constant="10" id="qSl-Mv-WxU"/>
+                            <constraint firstItem="t74-9q-jFa" firstAttribute="leading" secondItem="MLS-W2-s8S" secondAttribute="leading" constant="10" id="sg0-rw-QtO"/>
+                            <constraint firstItem="eHk-Rv-yF2" firstAttribute="leading" secondItem="MLS-W2-s8S" secondAttribute="leading" constant="10" id="uHO-qg-Xip"/>
+                            <constraint firstItem="MLS-W2-s8S" firstAttribute="bottom" secondItem="EGJ-GI-wUT" secondAttribute="bottom" constant="15" id="wit-Ts-ihb"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Info" image="info.circle" catalog="system" selectedImage="info.circle" id="te0-gq-ebD"/>
+                    <connections>
+                        <outlet property="source" destination="EGJ-GI-wUT" id="R1Z-Kk-QeS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ilx-Sq-h1q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="550.72463768115949" y="324.77678571428572"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="aqi" width="768" height="724"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
+        <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
